@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Template Practice</title>
+	<link rel="stylesheet" src="css/styles.css">
+</head>
+<body>
+
+	<div class="header">
+		<input id="slider" type="range" min="1240304" max="41662507" value="7729000" />
+		<div id="sliderValue">Median:$7,729,000</div>
+	</div>
+
+	<script src="js/tp/jquery-1.11.2.min.js"></script>
+	<script src="js/tp/underscore.min.js"></script>
+	<script src="js/tp/d3.v3.min.js"></script>
+
+<!-- TEMPLATE -->
+	<script id="template" type="text/jst">
+		<div class="result-container">
+			<div class="name"><span class="label">Name: </span><%= name %></div>
+			<div class="link"><a href="<%= url %>" target="_blank">Link</a></div>
+		</div>
+	</script>
+<!-- END TEMPLATE -->
+
+	<script src="js/main.js"></script>
+</body>
+</html>
