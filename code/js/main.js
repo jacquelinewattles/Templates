@@ -18,15 +18,17 @@ $('#slider').on('input', function(){
     var sliderValCom = commaSeparateNumber(sliderVal);
     $( '#sliderValue' ).html('$' + sliderValCom);
 
-        $.getJSON( "data/d1bball.json", function(myData) {
-            $.each(myData.TotRev, function(x, TotRevOf) {
+    d3.csv('data/result.csv', function(error, myData){
+        if (error){
+            console.log(error);
+        }
+
+        console.log(myData);
 
     	function selectSchools(){
     	$( '#canvas' ).html('');
 
-    	var filteredRevs = _.where(TotRev, function(revs){ return revs < 7729000 });
-
-        console.log(filteredRevs);
+    	var filteredRevs = _.filter(myData.TotRev, function(revs){ return revs < 7729000 });
 
 		filteredRevs.forEach(function(acceptSchool){
 				$('#canvas').append( templateFactory(acceptSchool) );
@@ -36,11 +38,9 @@ $('#slider').on('input', function(){
 		}
 
 	return selectSchools();
-    
-    // closes each statements
-    });
+
     // closes getJSON function and for loops
-    })
+    });
 })
 
 
