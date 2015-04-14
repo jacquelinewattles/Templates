@@ -1,0 +1,8 @@
+input[type="range"]{
+   width: 600px; 
+ }
+
+.results-wrapper h1 {
+	font-weight: bold;
+	font-size: 20px;
+}

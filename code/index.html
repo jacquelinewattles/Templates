@@ -8,9 +8,10 @@
 <body>
 
 	<div class="header">
-		<input id="slider" type="range" min="1240304" max="41662507" value="7729000" />
+		<input id="slider" type="range" min="1240304" max="41662507" />
 		<div id="sliderValue">Median:$7,729,000</div>
 	</div>
+	<div id="canvas"></div>
 
 	<script src="js/tp/jquery-1.11.2.min.js"></script>
 	<script src="js/tp/underscore.min.js"></script>
@@ -18,9 +19,23 @@
 
 <!-- TEMPLATE -->
 	<script id="template" type="text/jst">
-		<div class="result-container">
-			<div class="name"><span class="label">Name: </span><%= name %></div>
-			<div class="link"><a href="<%= url %>" target="_blank">Link</a></div>
+		<div class="results-wrapper">
+			<div class="schoolName">
+				<h1>Name: </h1>
+				<%= School %>
+			</div>
+			<div class="totalRev">
+				<span class="label">Total Basketball Revenue: </span> 
+				<%= TotRev %> 
+			</div>
+			<div class="mBall">
+				<span class="label">Mens Basketball Revenue: </span> 
+				<%= MenRev %> 
+			</div>
+			<div class="wBall">
+				<span class="label">Womens Basketball Revenue: </span> 
+				<%= WomRev %> 
+			</div>
 		</div>
 	</script>
 <!-- END TEMPLATE -->
