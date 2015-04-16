@@ -11,14 +11,12 @@ function commaSeparateNumber(val){
     return val;
   }
 
-
-
-$('#slider').on('input', function(){
-    var sliderVal = $( this ).val();
-    var sliderValCom = commaSeparateNumber(sliderVal);
-    $( '#sliderValue' ).html('$' + sliderValCom);
-
     $.getJSON('data/d1bball.json', function(myData){
+
+        $('#slider').on('input', function(){
+        var sliderVal = $( this ).val();
+        var sliderValCom = commaSeparateNumber(sliderVal);
+        $( '#sliderValue' ).html('$' + sliderValCom);
 
     	function selectSchools(){
     	$( '#canvas' ).html('');
@@ -36,7 +34,14 @@ $('#slider').on('input', function(){
 
         }
 
-	selectSchools();
+	var datOnLoad = myData.filter(function(e){
+        return e.TotRev >= 7729000;
+    })
+
+        datOnLoad.forEach(function(acceptSchool){
+        $('#canvas').append( templateFactory(acceptSchool) );
+                  });
+    selectSchools();
 
     // closes getJSON function and for loops
     });

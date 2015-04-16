@@ -3,14 +3,21 @@ body {
 	font-size: 15px;
 	background-image: url("../img/basketball.jpg");
 	background-attachment: fixed;
+	padding-top: 10px;
 }
 
 .header {
 	text-align: center;
 	color: white;
-	width: 100%;
+	width: 475px;
 	margin: 0 auto;
 	padding-bottom: 10px;
+	background-color: rgba(0,0,0,.8);
+	border-radius: 20px;
+}
+
+.aftert {
+	height: 10px;
 }
 
 .pageTitle {
