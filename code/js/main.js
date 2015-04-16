@@ -22,16 +22,17 @@ $('#slider').on('input', function(){
 
     	function selectSchools(){
     	$( '#canvas' ).html('');
-            myData.forEach(function(dataPoint){
-                var revenues = dataPoint.TotRev;
-            })
-            
-            var filteredRevs = myData.filter(function(dataPoint){
-                return _.filter(dataPoint, function(v) { return v.revenues > 6000000 });
-                // return _.where(dataPoint.revenues, function (num){num <= sliderVal});
-             })
+            // myData.forEach(function(dataPoint){
+            //     var revenues = dataPoint.TotRev;
+            // })
+            var filterVal = _.pluck(myData, 'TotRev');
+            var filterLogic = _.filter(filterVal, function(num){ return num > sliderVal; });
 
-            console.log(filteredRevs.length);
+            var filteredRevs = myData.filter(function(dataPoint){
+                return dataPoint.TotRev;
+                })
+
+            console.log(filteredRevs);
             
             filteredRevs.forEach(function(acceptSchool){
                     $('#canvas').append( templateFactory(acceptSchool) );

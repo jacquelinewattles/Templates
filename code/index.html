@@ -3,10 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>Template Practice</title>
-	<link rel="stylesheet" src="css/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 
+	<div class="pageTitle">College Basketball Revenue</div>
 	<div class="header">
 		<input id="slider" type="range" min="1240304" max="41662507" value="772900" />
 		<div id="sliderValue">Median:$7,729,000</div>
@@ -19,21 +21,21 @@
 
 <!-- TEMPLATE -->
 	<script id="template" type="text/jst">
+
 		<div class="results-wrapper">
 			<div class="schoolName">
-				<h1>Name: </h1>
 				<%= School %>
 			</div>
 			<div class="totalRev">
-				<span class="label">Total Basketball Revenue: </span> 
-				<%= TotRev %> 
+				<span class="label">Total Basketball Revenue: </span>$ 
+				<%= TotRev %>
 			</div>
 			<div class="mBall">
-				<span class="label">Mens Basketball Revenue: </span> 
+				<span class="label">Mens Basketball Revenue: </span>$ 
 				<%= MenRev %> 
 			</div>
 			<div class="wBall">
-				<span class="label">Womens Basketball Revenue: </span> 
+				<span class="label">Womens Basketball Revenue: </span>$ 
 				<%= WomRev %> 
 			</div>
 		</div>
