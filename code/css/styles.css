@@ -14,9 +14,15 @@ body {
 }
 
 .pageTitle {
-	font-size: 30px;
+	font-size: 39px;
 	text-align: center;
 	color: white;
+}
+
+.subhead {
+	font-size: 10px;
+	width: 450px;
+	margin: 0 auto;
 }
 
 .results-wrapper {
