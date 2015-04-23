@@ -1,59 +1,105 @@
-*{
-	margin: 0;
+.header{
+	text-align: center;
+	font-family: 'Amatic SC';
 }
 
-body {
-	font-family: Lato;
-	font-size: 15px;
-	background-image: url("../img/basketball.jpg");
-	background-attachment: fixed;
+#the{
+	font-size: 50px;
+	line-height: 45px;
+	letter-spacing: 20px;
+}
+
+#big{
+	font-size: 275px;
+	line-height: 230px;
+}
+
+#andthe{
+	font-size: 45px;
+	line-height: 45px;
+	letter-spacing: 10px;
+}
+
+#small{
+	font-size: 25px;
+}
+
+.subhead{
+	font-size: 14px;
+	font-family: 'Lato';
 	padding-top: 10px;
+	width: 300px;
+	margin: 0 auto;
 }
 
-.header {
+#buttonIntro {
 	text-align: center;
-	color: white;
-	width: 100%;
-	margin: 0 auto;
 	padding-bottom: 10px;
-	background-color: rgba(0,0,0,.8);
 }
 
-.aftert {
-	height: 10px;
+.buttons {
+	margin-top: 20px;
+	font-family: 'Lato';
+	width: auto;
+	display: inline-block;
+	float: left;
+	margin-left: 325px;
 }
 
-.pageTitle {
-	font-size: 39px;
-	text-align: center;
+#canvas{
+	width: 400px;
+	height: 100%;
+	display: inline-block;
+	float: right;
+	margin-right: 200px;
+}
+
+.most, .least, .seeAll {
+	background-color: black;
 	color: white;
+	cursor: pointer;
+	border-radius: 16px;
+	text-align: center;
+	box-shadow: 5px 5px 5px #888888;
 }
 
-.subhead {
-	font-size: 10px;
-	width: 450px;
-	margin: 0 auto;
+.most:hover, .least:hover, .seeAll:hover {
+	background-color: gray;
+}
+
+.most{
+	font-size: 30px;
+	line-height: 38px;
+	width: 150px;
+	margin: 10px auto;
+}
+
+.least{
+	line-height: 20px;
+	width: 80px;
+	margin: 10px auto;
+}
+
+.seeAll{
+	width: 120px;
+	margin: 10px auto;
 }
 
 .results-wrapper {
-	height: 120px;
-	width: 430px;
-	border: 1px solid #ccc;
-	border-radius: 20px;
-	margin: 0 auto;
-	background-color: rgba(250, 250, 250, .8);
+	width: 350px;
+	margin: 20px auto;
+	background-color: #7F3E47;
+	border-radius: 10px;
+	font-family: 'Lato';
+	padding: 16px;
+	box-shadow: 5px 5px 5px #888888;
 }
 
-.schoolName {
-	font-weight: bold;
-	padding-top: 10px;
-	padding-left: 10px;
-	padding-bottom: 5px;
-	font-size: 20px;
+.schoolName, .underPop {
 	text-align: center;
 }
 
-.label {
-	font-weight: bold;
-	padding-left: 10px;
+.active, .active:hover{
+	background-color: #7F3E47;
+	box-shadow: 1px 1px 5px #888888;
 }

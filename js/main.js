@@ -4,48 +4,75 @@ var templateHtml = $('#template').html();
 
 var templateFactory = _.template(templateHtml);
 
-function commaSeparateNumber(val){
-    while (/(\d+)(\d{3})/.test(val.toString())){
-      val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+var helper = {
+    commaSeparateNumber: function(val){
+        while (/(\d+)(\d{3})/.test(val.toString())){
+        val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+        }
+        return val;
+    },
+    uppercased: function(val){
+        val = val.toUpperCase();
+        return val;
     }
-    return val;
-  }
+}
 
 $.getJSON('data/d1bball.json', function(myData){
-    var datOnLoad = myData.filter(function(e){
-        return e.TotRev >= 7729000;
+    
+    var datonLoad = myData;
+    myData.forEach(function(acceptSchool){
+            _.extend(acceptSchool, helper);
+            $( '#canvas' ).append( templateFactory(acceptSchool) );
+        })
+
+    // MOST BUTTON
+
+    var largPop = myData.filter(function(e){
+        return e.UndergradPop >= 39800;
+    })
+    $('.most').on('click', function(){ 
+        $('.buttons').find('div').removeClass( "active" );
+        $( this ).addClass( "active" );
+        $( '#canvas' ).html('');
+        largPop.forEach(function(acceptSchool){
+            _.extend(acceptSchool, helper);
+            $( '#canvas' ).append( templateFactory(acceptSchool) );
+        })
     });
 
-        datOnLoad.forEach(function(acceptSchool){
-        $('#canvas').append( templateFactory(acceptSchool) );
-        });
 
-     console.log(datOnLoad);
+    // LEST BUTTON
 
-        $('#slider').on('input', function(){
-        var sliderVal = $( this ).val();
-        var sliderValCom = commaSeparateNumber(sliderVal);
-        $( '#sliderValue' ).html('$' + sliderValCom);
-
-    	function selectSchools(){
-    	$( '#canvas' ).html('');
-
-            var filteredRevs = myData.filter(function(e){
-                return e.TotRev >= sliderVal;
-            })
-
-            console.log(sliderVal);
-            console.log(filteredRevs.length);
-            
-            filteredRevs.forEach(function(acceptSchool){
-                    $('#canvas').append( templateFactory(acceptSchool) );
-                  });
-
-        }
-
-        selectSchools();
+    var smallPop = myData.filter(function(e){
+        return e.UndergradPop <= 1900;
+    })
+    $('.least').on('click', function(){
+        $('.buttons').find('div').removeClass( "active" );
+        $( this ).addClass( "active" );
+        $( '#canvas' ).html('');
+        smallPop.forEach(function(acceptSchool){
+            _.extend(acceptSchool, helper);
+            $( '#canvas' ).append( templateFactory(acceptSchool) );
+        })
     });
-})
+
+
+    // ALL SCHOOLS BUTTON
+
+    var allSchools = _.sortBy(myData, 'UndergradPop');
+    $('.seeAll').on('click', function(){
+        $('.buttons').find('div').removeClass( "active" );
+        $( this ).addClass( "active" );
+        $( '#canvas' ).html('');
+        myData.forEach(function(acceptSchool){
+            _.extend(acceptSchool, helper);
+            $( '#canvas' ).append( templateFactory(acceptSchool) );
+        })
+        console.log(allSchools);
+    });
+
+
+    });
 
 
 }).call(this);

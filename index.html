@@ -4,17 +4,29 @@
 	<meta charset="utf-8">
 	<title>Template Practice</title>
 	<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 
 	<div class="header">
-	<div class="pageTitle">College Basketball Revenue
-		<div class="subhead">For Division 1A Schools in the NCAA<br>Use the slider to find the schools that generate more basketball revenue than the given amount.</div>
+	<div class="pageTitle">
+		<span id="the">THE</span><br> 
+		<span id="big">BIG</span><br> 
+		<span id="andthe">and the</span><br>
+		<span id="small">&middot; small &middot;</span>
+
+		<div class="subhead">find the schools with the smallest and largest undergrad population.</div>
 	</div>
-		<input id="slider" type="range" min="1240304" max="41662507" value="8000000" />
-		<div id="sliderValue">Median:$7,729,000</div>
 	</div>
+
+		<div class="buttons">
+			<div class="most">LARGEST</div>
+			<div class="least">smallest</div>
+			<div class="seeAll">See All</div>
+		</div>
+
 	<div class="aftert"></div>
 	<div id="canvas"></div>
 
@@ -27,19 +39,11 @@
 
 		<div class="results-wrapper">
 			<div class="schoolName">
-				<%= School %>
+				<%= uppercased(School) %>
 			</div>
-			<div class="totalRev">
-				<span class="label">Total Basketball Revenue: </span>$ 
-				<%= TotRev %>
-			</div>
-			<div class="mBall">
-				<span class="label">Mens Revenue: </span>$ 
-				<%= MenRev %> 
-			</div>
-			<div class="wBall">
-				<span class="label">Womens Revenue: </span>$ 
-				<%= WomRev %> 
+			<div class="underPop">
+				<span class="label">Total Undergrad Population: </span> 
+				<%= commaSeparateNumber(UndergradPop) %>
 			</div>
 		</div>
 		<div class="aftert"></div>
